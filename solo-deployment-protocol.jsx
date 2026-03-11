@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StackGuide from "./modern-solo-stack";
 
 // ─── DATA ───────────────────────────────────────────────────────────────────
 
@@ -148,7 +149,8 @@ const SAVINGS = {
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
-const TABS = ["Diagnosis", "Deploy Flow", "Stack Swap", "Migration Plan", "Your Numbers"];
+const MAIN_TABS = ["Basic setup", "Modern stack"];
+const SUB_TABS = ["Diagnosis", "Deploy Flow", "Stack Swap", "Migration Plan", "Your Numbers"];
 
 const tag = (color, text) => (
   <span style={{
@@ -159,7 +161,8 @@ const tag = (color, text) => (
 );
 
 export default function SoloProtocol() {
-  const [tab, setTab] = useState(0);
+  const [mainTab, setMainTab] = useState(0);
+  const [subTab, setSubTab] = useState(0);
   const [rate, setRate] = useState(65);
   const [deploys, setDeploys] = useState(8);
   const [expanded, setExpanded] = useState(null);
@@ -207,12 +210,25 @@ export default function SoloProtocol() {
             Django + Fabric + Docker + DO Droplet is a 3-engineer stack. Here's your escape plan.
           </p>
 
-          <div style={{ display: "flex", gap: 0 }}>
-            {TABS.map((t, i) => (
-              <button key={t} onClick={() => { setTab(i); setExpanded(null); }} style={{
+          <div style={{ display: "flex", gap: 0, marginBottom: 16 }}>
+            {MAIN_TABS.map((t, i) => (
+              <button key={t} onClick={() => { setMainTab(i); setExpanded(null); }} style={{
                 background: "none", border: "none",
-                borderBottom: tab === i ? "2px solid #f97316" : "2px solid transparent",
-                color: tab === i ? "#fb923c" : "#475569",
+                borderBottom: mainTab === i ? "2px solid #f97316" : "2px solid transparent",
+                color: mainTab === i ? "#fb923c" : "#475569",
+                padding: "8px 16px", cursor: "pointer",
+                fontSize: 12, fontFamily: "inherit",
+                letterSpacing: "0.04em", marginBottom: -1,
+                transition: "color 0.15s",
+              }}>{t}</button>
+            ))}
+          </div>
+          <div style={{ display: "flex", gap: 0 }}>
+            {SUB_TABS.map((t, i) => (
+              <button key={t} onClick={() => { setSubTab(i); setExpanded(null); }} style={{
+                background: "none", border: "none",
+                borderBottom: subTab === i ? "2px solid #f97316" : "2px solid transparent",
+                color: subTab === i ? "#fb923c" : "#475569",
                 padding: "8px 16px", cursor: "pointer",
                 fontSize: 12, fontFamily: "inherit",
                 letterSpacing: "0.04em", marginBottom: -1,
@@ -226,8 +242,9 @@ export default function SoloProtocol() {
       {/* ── CONTENT ── */}
       <div style={{ maxWidth: 960, margin: "0 auto", padding: "28px 36px" }}>
 
-        {/* TAB 0: DIAGNOSIS */}
-        {tab === 0 && (
+        {mainTab === 1 && <StackGuide />}
+
+        {mainTab === 0 && subTab === 0 && (
           <>
             <div style={{
               background: "#0d0f1a",
@@ -271,8 +288,7 @@ export default function SoloProtocol() {
           </>
         )}
 
-        {/* TAB 1: DEPLOY FLOW */}
-        {tab === 1 && (
+        {mainTab === 0 && subTab === 1 && (
           <>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 8 }}>
               <div style={{ fontSize: 11, color: "#f97316", letterSpacing: "0.12em", paddingBottom: 10, borderBottom: "1px solid #f9731622" }}>
@@ -357,8 +373,7 @@ export default function SoloProtocol() {
           </>
         )}
 
-        {/* TAB 2: STACK SWAP */}
-        {tab === 2 && (
+        {mainTab === 0 && subTab === 2 && (
           <>
             <div style={{ fontSize: 11, color: "#475569", letterSpacing: "0.12em", marginBottom: 16 }}>
               COMPONENT-BY-COMPONENT REPLACEMENT · SAME MySQL DIALECT THROUGHOUT
@@ -402,8 +417,7 @@ export default function SoloProtocol() {
           </>
         )}
 
-        {/* TAB 3: MIGRATION PLAN */}
-        {tab === 3 && (
+        {mainTab === 0 && subTab === 3 && (
           <>
             <div style={{ fontSize: 11, color: "#475569", letterSpacing: "0.12em", marginBottom: 16 }}>
               4-PHASE PLAN · INCREMENTAL · NO BIG-BANG REWRITE · LOWEST RISK FIRST
@@ -468,8 +482,7 @@ export default function SoloProtocol() {
           </>
         )}
 
-        {/* TAB 4: YOUR NUMBERS */}
-        {tab === 4 && (
+        {mainTab === 0 && subTab === 4 && (
           <>
             {/* Controls */}
             <div style={{
