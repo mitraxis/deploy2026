@@ -2,6 +2,7 @@ import { useState } from "react";
 import StackGuide from "./modern-solo-stack";
 import StackComparison from "./stack-comparison";
 import MigrationGuide from "./migration-guide";
+import InpulsMigrationGuide from "./inpuls-migration-guide";
 
 // ─── DATA ───────────────────────────────────────────────────────────────────
 
@@ -151,7 +152,7 @@ const SAVINGS = {
 
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
-const MAIN_TABS = ["Diagnosis", "Deploy Flow", "Stack Swap", "Migration Plan", "Your Numbers", "Stack Comparison", "Migration Guide"];
+const MAIN_TABS = ["Diagnosis", "Deploy Flow", "Stack Swap", "Migration Plan", "Your Numbers", "Stack Comparison", "Migration Guide", "Inpuls Migration"];
 
 const tag = (color, text) => (
   <span style={{
@@ -232,6 +233,7 @@ export default function SoloProtocol() {
 
         {mainTab === 5 && <StackComparison />}
         {mainTab === 6 && <MigrationGuide />}
+        {mainTab === 7 && <InpulsMigrationGuide />}
 
         {mainTab === 1 && (
           <>
