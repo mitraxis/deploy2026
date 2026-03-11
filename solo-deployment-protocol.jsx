@@ -1,5 +1,6 @@
 import { useState } from "react";
 import StackGuide from "./modern-solo-stack";
+import StackComparison from "./stack-comparison";
 
 // ─── DATA ───────────────────────────────────────────────────────────────────
 
@@ -229,49 +230,7 @@ export default function SoloProtocol() {
       {/* ── CONTENT ── */}
       <div style={{ maxWidth: 960, margin: "0 auto", padding: "28px 36px" }}>
 
-        {mainTab === 5 && (
-          <>
-            <div style={{ fontSize: 11, color: "#475569", letterSpacing: "0.12em", marginBottom: 16 }}>
-              COMPONENT-BY-COMPONENT REPLACEMENT · SAME MySQL DIALECT THROUGHOUT
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {STACK_COMPARE.map((row, i) => (
-                <div key={i} style={{
-                  display: "grid", gridTemplateColumns: "120px 1fr 1fr",
-                  background: "#09090f", border: "1px solid #1e293b",
-                  borderRadius: 8, overflow: "hidden",
-                }}>
-                  <div style={{
-                    padding: "16px 14px", background: "#0d0f1a",
-                    borderRight: "1px solid #1e293b",
-                    display: "flex", alignItems: "center",
-                  }}>
-                    <span style={{ fontSize: 11, color: "#64748b", letterSpacing: "0.08em" }}>{row.category}</span>
-                  </div>
-                  <div style={{ padding: "14px 16px", borderRight: "1px solid #1e293b" }}>
-                    <div style={{ fontSize: 12, color: "#e2e8f0", fontWeight: 600, marginBottom: 4 }}>{row.current.name}</div>
-                    <div style={{ fontSize: 11, color: "#f97316", lineHeight: 1.5 }}>↳ {row.current.pain}</div>
-                  </div>
-                  <div style={{ padding: "14px 16px" }}>
-                    <div style={{ fontSize: 12, color: "#e2e8f0", fontWeight: 600, marginBottom: 4 }}>{row.modern.name}</div>
-                    <div style={{ fontSize: 11, color: "#22c55e", lineHeight: 1.5 }}>✓ {row.modern.win}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div style={{
-              marginTop: 20, padding: "16px 20px",
-              background: "#0d0f1a", border: "1px solid #6366f133",
-              borderRadius: 8, fontSize: 12, color: "#94a3b8", lineHeight: 1.7,
-            }}>
-              <span style={{ color: "#a5b4fc", fontWeight: 700 }}>Important for solo devs: </span>
-              PlanetScale uses the MySQL wire protocol — your Django ORM queries work unchanged. 
-              Vercel + Railway both deploy from your existing GitHub repo. 
-              <strong style={{ color: "#e2e8f0" }}> You do not need to rewrite anything to get 9× faster deploys.</strong>
-            </div>
-          </>
-        )}
+        {mainTab === 5 && <StackComparison />}
 
         {mainTab === 0 && subTab === 0 && (
           <>
@@ -398,6 +357,50 @@ export default function SoloProtocol() {
             </div>
             <div style={{ fontSize: 11, color: "#475569", marginTop: 12 }}>
               ↑ Click any step to expand details
+            </div>
+          </>
+        )}
+
+        {mainTab === 0 && subTab === 2 && (
+          <>
+            <div style={{ fontSize: 11, color: "#475569", letterSpacing: "0.12em", marginBottom: 16 }}>
+              COMPONENT-BY-COMPONENT REPLACEMENT · SAME MySQL DIALECT THROUGHOUT
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              {STACK_COMPARE.map((row, i) => (
+                <div key={i} style={{
+                  display: "grid", gridTemplateColumns: "120px 1fr 1fr",
+                  background: "#09090f", border: "1px solid #1e293b",
+                  borderRadius: 8, overflow: "hidden",
+                }}>
+                  <div style={{
+                    padding: "16px 14px", background: "#0d0f1a",
+                    borderRight: "1px solid #1e293b",
+                    display: "flex", alignItems: "center",
+                  }}>
+                    <span style={{ fontSize: 11, color: "#64748b", letterSpacing: "0.08em" }}>{row.category}</span>
+                  </div>
+                  <div style={{ padding: "14px 16px", borderRight: "1px solid #1e293b" }}>
+                    <div style={{ fontSize: 12, color: "#e2e8f0", fontWeight: 600, marginBottom: 4 }}>{row.current.name}</div>
+                    <div style={{ fontSize: 11, color: "#f97316", lineHeight: 1.5 }}>↳ {row.current.pain}</div>
+                  </div>
+                  <div style={{ padding: "14px 16px" }}>
+                    <div style={{ fontSize: 12, color: "#e2e8f0", fontWeight: 600, marginBottom: 4 }}>{row.modern.name}</div>
+                    <div style={{ fontSize: 11, color: "#22c55e", lineHeight: 1.5 }}>✓ {row.modern.win}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div style={{
+              marginTop: 20, padding: "16px 20px",
+              background: "#0d0f1a", border: "1px solid #6366f133",
+              borderRadius: 8, fontSize: 12, color: "#94a3b8", lineHeight: 1.7,
+            }}>
+              <span style={{ color: "#a5b4fc", fontWeight: 700 }}>Important for solo devs: </span>
+              PlanetScale uses the MySQL wire protocol — your Django ORM queries work unchanged. 
+              Vercel + Railway both deploy from your existing GitHub repo. 
+              <strong style={{ color: "#e2e8f0" }}> You do not need to rewrite anything to get 9× faster deploys.</strong>
             </div>
           </>
         )}
