@@ -151,7 +151,6 @@ const SAVINGS = {
 // ─── COMPONENT ───────────────────────────────────────────────────────────────
 
 const MAIN_TABS = ["Diagnosis", "Deploy Flow", "Stack Swap", "Migration Plan", "Your Numbers", "Stack Comparison"];
-const SUB_TABS = ["Diagnosis", "Deploy Flow", "Stack Swap", "Migration Plan", "Your Numbers"];
 
 const tag = (color, text) => (
   <span style={{
@@ -224,22 +223,6 @@ export default function SoloProtocol() {
               }}>{t}</button>
             ))}
           </div>
-
-          {mainTab === 0 && (
-            <div style={{ display: "flex", gap: 0, marginBottom: 12 }}>
-              {SUB_TABS.map((t, i) => (
-                <button key={t} onClick={() => { setSubTab(i); setExpanded(null); }} style={{
-                  background: "none", border: "none",
-                  borderBottom: subTab === i ? "1px solid #94a3b8" : "1px solid transparent",
-                  color: subTab === i ? "#94a3b8" : "#475569",
-                  padding: "6px 14px", cursor: "pointer",
-                  fontSize: 11, fontFamily: "inherit",
-                  letterSpacing: "0.04em", marginBottom: -1,
-                  transition: "color 0.15s",
-                }}>{t}</button>
-              ))}
-            </div>
-          )}
         </div>
       </div>
 
