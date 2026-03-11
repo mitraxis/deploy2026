@@ -212,11 +212,11 @@ export default function SoloProtocol() {
           </p>
 
           <div style={{ display: "flex", gap: 0, marginBottom: 16 }}>
-            {SUB_TABS.map((t, i) => (
-              <button key={t} onClick={() => { setSubTab(i); setExpanded(null); }} style={{
+            {MAIN_TABS.map((t, i) => (
+              <button key={t} onClick={() => { setMainTab(i); setExpanded(null); }} style={{
                 background: "none", border: "none",
-                borderBottom: subTab === i ? "2px solid #f97316" : "2px solid transparent",
-                color: subTab === i ? "#fb923c" : "#475569",
+                borderBottom: mainTab === i ? "2px solid #f97316" : "2px solid transparent",
+                color: mainTab === i ? "#fb923c" : "#475569",
                 padding: "8px 16px", cursor: "pointer",
                 fontSize: 12, fontFamily: "inherit",
                 letterSpacing: "0.04em", marginBottom: -1,
@@ -224,6 +224,22 @@ export default function SoloProtocol() {
               }}>{t}</button>
             ))}
           </div>
+
+          {mainTab === 0 && (
+            <div style={{ display: "flex", gap: 0, marginBottom: 12 }}>
+              {SUB_TABS.map((t, i) => (
+                <button key={t} onClick={() => { setSubTab(i); setExpanded(null); }} style={{
+                  background: "none", border: "none",
+                  borderBottom: subTab === i ? "1px solid #94a3b8" : "1px solid transparent",
+                  color: subTab === i ? "#94a3b8" : "#475569",
+                  padding: "6px 14px", cursor: "pointer",
+                  fontSize: 11, fontFamily: "inherit",
+                  letterSpacing: "0.04em", marginBottom: -1,
+                  transition: "color 0.15s",
+                }}>{t}</button>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
