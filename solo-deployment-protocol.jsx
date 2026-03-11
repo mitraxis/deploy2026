@@ -231,51 +231,7 @@ export default function SoloProtocol() {
 
         {mainTab === 5 && <StackComparison />}
 
-        {mainTab === 0 && subTab === 0 && (
-          <>
-            <div style={{
-              background: "#0d0f1a",
-              border: "1px solid #ef444433",
-              borderLeft: "3px solid #ef4444",
-              borderRadius: 8, padding: "18px 22px", marginBottom: 24,
-            }}>
-              <div style={{ fontSize: 10, color: "#ef4444", letterSpacing: "0.15em", marginBottom: 8 }}>VERDICT</div>
-              <div style={{ fontSize: 14, color: "#e2e8f0", lineHeight: 1.7 }}>{DIAGNOSIS.summary}</div>
-            </div>
-
-            <div style={{ fontSize: 11, color: "#475569", letterSpacing: "0.12em", marginBottom: 14 }}>
-              THE 6 THINGS EATING YOUR TIME
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 28 }}>
-              {DIAGNOSIS.crimes.map((c, i) => (
-                <div key={i} style={{
-                  background: "#0d0f1a", border: "1px solid #1e293b",
-                  borderRadius: 8, padding: "14px 16px",
-                }}>
-                  <div style={{ fontSize: 16, marginBottom: 6 }}>{c.icon}</div>
-                  <div style={{ fontSize: 13, color: "#e2e8f0", fontWeight: 600, marginBottom: 4 }}>{c.title}</div>
-                  <div style={{ fontSize: 11, color: "#64748b", lineHeight: 1.6 }}>{c.cost}</div>
-                </div>
-              ))}
-            </div>
-
-            <div style={{
-              background: "#0d1a0d", border: "1px solid #22c55e22",
-              borderLeft: "3px solid #22c55e", borderRadius: 8, padding: "16px 22px",
-            }}>
-              <div style={{ fontSize: 12, color: "#22c55e", marginBottom: 6, fontWeight: 700 }}>
-                THE GOOD NEWS
-              </div>
-              <div style={{ fontSize: 13, color: "#94a3b8", lineHeight: 1.7 }}>
-                Your stack is fixable in <strong style={{ color: "#e2e8f0" }}>4 weeks of weekend work</strong>, not a rewrite. 
-                You can migrate incrementally — frontend first (lowest risk), then deploy tooling, then database. 
-                At no point do you need to rewrite your Django app unless you want to.
-              </div>
-            </div>
-          </>
-        )}
-
-        {mainTab === 0 && subTab === 1 && (
+        {mainTab === 1 && (
           <>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 8 }}>
               <div style={{ fontSize: 11, color: "#f97316", letterSpacing: "0.12em", paddingBottom: 10, borderBottom: "1px solid #f9731622" }}>
@@ -350,17 +306,61 @@ export default function SoloProtocol() {
                   border: "1px solid #22c55e33", borderRadius: 6, textAlign: "center",
                 }}>
                   <div style={{ fontSize: 22, fontWeight: 700, color: "#22c55e" }}>~2 min</div>
-                  <div style={{ fontSize: 10, color: "#64748b", marginTop: 2 }}>vs your current ~18 min · 9× faster</div>
+                  <div style={{ fontSize: 10, color: "#64748b", marginTop: 2 }}>vs your current ~18 min路 9脳 faster</div>
                 </div>
               </div>
             </div>
             <div style={{ fontSize: 11, color: "#475569", marginTop: 12 }}>
-              ↑ Click any step to expand details
+              鈫 Click any step to expand details
             </div>
           </>
         )}
 
-        {mainTab === 0 && subTab === 2 && (
+        {mainTab === 0 && subTab === 0 && (
+          <>
+            <div style={{
+              background: "#0d0f1a",
+              border: "1px solid #ef444433",
+              borderLeft: "3px solid #ef4444",
+              borderRadius: 8, padding: "18px 22px", marginBottom: 24,
+            }}>
+              <div style={{ fontSize: 10, color: "#ef4444", letterSpacing: "0.15em", marginBottom: 8 }}>VERDICT</div>
+              <div style={{ fontSize: 14, color: "#e2e8f0", lineHeight: 1.7 }}>{DIAGNOSIS.summary}</div>
+            </div>
+
+            <div style={{ fontSize: 11, color: "#475569", letterSpacing: "0.12em", marginBottom: 14 }}>
+              THE 6 THINGS EATING YOUR TIME
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 28 }}>
+              {DIAGNOSIS.crimes.map((c, i) => (
+                <div key={i} style={{
+                  background: "#0d0f1a", border: "1px solid #1e293b",
+                  borderRadius: 8, padding: "14px 16px",
+                }}>
+                  <div style={{ fontSize: 16, marginBottom: 6 }}>{c.icon}</div>
+                  <div style={{ fontSize: 13, color: "#e2e8f0", fontWeight: 600, marginBottom: 4 }}>{c.title}</div>
+                  <div style={{ fontSize: 11, color: "#64748b", lineHeight: 1.6 }}>{c.cost}</div>
+                </div>
+              ))}
+            </div>
+
+            <div style={{
+              background: "#0d1a0d", border: "1px solid #22c55e22",
+              borderLeft: "3px solid #22c55e", borderRadius: 8, padding: "16px 22px",
+            }}>
+              <div style={{ fontSize: 12, color: "#22c55e", marginBottom: 6, fontWeight: 700 }}>
+                THE GOOD NEWS
+              </div>
+              <div style={{ fontSize: 13, color: "#94a3b8", lineHeight: 1.7 }}>
+                Your stack is fixable in <strong style={{ color: "#e2e8f0" }}>4 weeks of weekend work</strong>, not a rewrite. 
+                You can migrate incrementally — frontend first (lowest risk), then deploy tooling, then database. 
+                At no point do you need to rewrite your Django app unless you want to.
+              </div>
+            </div>
+          </>
+        )}
+
+        {mainTab === 2 && (
           <>
             <div style={{ fontSize: 11, color: "#475569", letterSpacing: "0.12em", marginBottom: 16 }}>
               COMPONENT-BY-COMPONENT REPLACEMENT · SAME MySQL DIALECT THROUGHOUT
@@ -404,7 +404,7 @@ export default function SoloProtocol() {
           </>
         )}
 
-        {mainTab === 0 && subTab === 3 && (
+        {mainTab === 3 && (
           <>
             <div style={{ fontSize: 11, color: "#475569", letterSpacing: "0.12em", marginBottom: 16 }}>
               4-PHASE PLAN · INCREMENTAL · NO BIG-BANG REWRITE · LOWEST RISK FIRST
@@ -469,7 +469,7 @@ export default function SoloProtocol() {
           </>
         )}
 
-        {mainTab === 0 && subTab === 4 && (
+        {mainTab === 4 && (
           <>
             {/* Controls */}
             <div style={{
